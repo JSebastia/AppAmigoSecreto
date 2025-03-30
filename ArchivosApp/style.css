@@ -44,12 +44,13 @@ body {
     flex: 60%;
     background-color: var(--color-secondary);
     border: 1px solid #000;
-    border-radius: 64px 64px 0 0;
+    border-radius: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    width: 100%;
+    width: 95%;
+    margin: 10px auto 20px auto;
 }
 
 /* Títulos */
@@ -75,6 +76,7 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
+    gap: 10px;
     max-width: 600px;
     margin-top: 20px;
 }
@@ -83,7 +85,7 @@ body {
     width: 100%;
     padding: 10px;
     border: 2px solid #000;
-    border-radius: 25px 0 0 25px;
+    border-radius: 15px;
     font-size: 16px;
 }
 
@@ -105,7 +107,7 @@ body {
 }
 
 /* Estilos de botón */
-button {
+/*button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
     font-size: 16px;
@@ -113,12 +115,14 @@ button {
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-}
+}*/
 
 .button-add {
     background-color: var(--color-tertiary);
     color: var(--color-text);
-    border-radius: 0 25px 25px 0;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
 }
 
 .button-add:hover {
@@ -127,11 +131,37 @@ button {
 
 /* Listas */
 ul {
+    width: 90%;
     list-style-type: none;
     color: var(--color-text);
     font-family: "Inter", sans-serif;
     font-size: 18px;
     margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#listaAmigos{
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+button{
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+li{
+    border: 2px solid ;
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    font-size: 24px;
 }
 
 .result-list {
@@ -143,7 +173,12 @@ ul {
 }
 
 /* Botón de sortear título */
-.button-draw {
+.button-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.button-draw1{
     display: flex;
     align-items: center;
     width: 100%;
@@ -151,6 +186,21 @@ ul {
     color: var(--color-white);
     background-color: var(--color-button);
     font-size: 16px;
+    border-radius: 20px 20px 0 0;
+    border: none;
+    gap: 10px;
+    justify-content: center;
+}
+
+.button-draw2{
+    align-items: center;
+    width: 100%;
+    padding: 15px 40px;
+    color: var(--color-white);
+    background-color: var(--color-button);
+    font-size: 16px;
+    border-radius: 0 0 20px 20px;
+    border: none;
 }
 
 .button-draw img {
