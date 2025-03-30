@@ -15,7 +15,10 @@ function agregarAmigo(){
 
         limpiarInput();
         actualizarListaAmigos();
-    } 
+    }
+    
+    let elementoResultado = document.querySelector("#resultado");
+    elementoResultado.innerHTML = "";
     return;
 }
 
@@ -28,7 +31,19 @@ function actualizarListaAmigos(){
     for (let iterador = 0; iterador < tamanioArrayAmigos; iterador++){
         //Se crea un elemento li.
         let elementoLi = document.createElement("li");
-        elementoLi.innerHTML = arrayAmigos[iterador];
+        elementoLi.innerHTML = "..........";
+
+        let elementoButton = document.createElement("button");
+        elementoButton.innerHTML = "❌";
+
+        elementoButton.addEventListener("click", function(){
+            
+            let posicionListaEliminar = iterador;
+
+            eliminarAmigo(posicionListaEliminar, tamanioArrayAmigos);     
+        });
+
+        elementoLi.appendChild(elementoButton);
         //Se agrega el elemento li en la lista.
         listaAmigos.appendChild(elementoLi);
     } 
@@ -52,10 +67,37 @@ function sortearAmigo(){
         let elementoResultado = document.querySelector("#resultado");
         elementoResultado.innerHTML = textoResultado;
 
-        limpiarListaAmigos();
+        eliminarAmigo(indiceAleatorio, arrayAmigos.length);
     }
 
     return;
+}
+
+function eliminarAmigo(posicionArrayE, tamanioArray){
+
+    let arrayNuevo = [];
+
+    for (let iterador = 0; iterador < tamanioArray; iterador++){
+                    
+        if(iterador != posicionArrayE){
+            arrayNuevo.push(arrayAmigos[iterador]);
+        }                  
+    }
+
+    arrayAmigos = arrayNuevo;
+    actualizarListaAmigos();
+    return;
+}
+
+function reiniciar(){
+
+    limpiarListaAmigos();
+
+    arrayAmigos = [];
+
+    let elementoResultado = document.querySelector("#resultado");
+    elementoResultado.innerHTML = "";
+
 }
 
 function limpiarListaAmigos(){
