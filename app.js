@@ -91,25 +91,20 @@ function eliminarAmigo(posicionArrayE, tamanioArray){
 function reiniciar(){
 
     limpiarListaAmigos();
-
     arrayAmigos = [];
-
     let elementoResultado = document.querySelector("#resultado");
     elementoResultado.innerHTML = "";
-
 }
 
 function limpiarListaAmigos(){
 
     let listaAmigos = document.getElementById("listaAmigos");
     listaAmigos.innerHTML = "";
-
     return listaAmigos;
 }
 
 function limpiarInput(){
 
     document.getElementById("amigo").value = "";
-
     return;
 }
