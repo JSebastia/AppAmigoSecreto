@@ -1,18 +1,17 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-
 let arrayAmigos = [];
 
 function agregarAmigo(){
 
     let entradaTexto = document.getElementById("amigo").value;
+    let caractaresIngresados = entradaTexto.length;
 
-    if(entradaTexto === ""){
-
+    if (caractaresIngresados > 0 && caractaresIngresados <= 2) {
+        alert("¡Opps!...El nombre es demasiado corto");
+    } else if(entradaTexto === "") {
         alert("¡Opps!...Por favor, inserte un nombre.");
-    }else{
+    } else {
         //Se agrega al final del array un elemento.
         arrayAmigos.push(entradaTexto);
-
         limpiarInput();
         actualizarListaAmigos();
     }
@@ -39,8 +38,11 @@ function actualizarListaAmigos(){
         elementoButton.addEventListener("click", function(){
             
             let posicionListaEliminar = iterador;
-
-            eliminarAmigo(posicionListaEliminar, tamanioArrayAmigos);     
+            //EN PRUEBA (MOSTRAR ALERTA DE CONFIRMACIÓN PARA ELIMIANR AMIGO DEL SORTEO)
+            //let confirmarEliminar = confirm(`¿Deceas eliminar al amigo "${arrayAmigos[iterador]}" del sorteo?`);
+            //if(confirmarEliminar){
+            eliminarAmigo(posicionListaEliminar, tamanioArrayAmigos); 
+            //}               
         });
 
         elementoLi.appendChild(elementoButton);
@@ -59,8 +61,6 @@ function sortearAmigo(){
         //Se genera un numero aleatorio entre 0 y la longitud del array.
         let indiceAleatorio = Math.floor(Math.random() * arrayAmigos.length);
 
-        console.log(indiceAleatorio);
-
         let amigo = arrayAmigos[indiceAleatorio];
         let textoResultado = `El amigo sorteado es: ${amigo}`;
         
@@ -69,7 +69,6 @@ function sortearAmigo(){
 
         eliminarAmigo(indiceAleatorio, arrayAmigos.length);
     }
-
     return;
 }
 
@@ -79,9 +78,9 @@ function eliminarAmigo(posicionArrayE, tamanioArray){
 
     for (let iterador = 0; iterador < tamanioArray; iterador++){
                     
-        if(iterador != posicionArrayE){
+        if (iterador != posicionArrayE) {
             arrayNuevo.push(arrayAmigos[iterador]);
-        }                  
+        }                
     }
 
     arrayAmigos = arrayNuevo;
